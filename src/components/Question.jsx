@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 export const Question = ({ item, setUserAnswer, next }) => {
-    const { Question, img, Items } = item;
+    const { question, img, items } = item;
 
     const [answer, setAnswer] = useState();
     const [finish, setFinish] = useState(false);
@@ -9,18 +9,18 @@ export const Question = ({ item, setUserAnswer, next }) => {
     const checkAnswer = (e) => {
         if (finish || answer == undefined)
             return;
-        setUserAnswer(Items[answer].isAnswer)
+        setUserAnswer(items[answer].isAnswer)
         setFinish(true);
     }
     return (
         <>
             {
                 <div className='border-2 m-2 p-2 rounded-md shadow-xl'>
-                    <div><b>{Question}</b>
-                        {img && <img src={'../Images/' + img?.split('/').pop()} style={{ maxWidth: '120px' }} />}
+                    <div><b>{question}</b>
+                        {img && <img src={'../Images/' + img?.split('/').pop()} style={{ maxHeight: '120px' }} />}
                     </div>
                     <hr className="my-1"/>
-                    <ul>{Items?.map((item, index) =>
+                    <ul className={items.some(x=>x.img)? 'flex gap-5':''}>{items?.map((item, index) =>
                         <li className={'mt-1 ' + (finish && item.isAnswer ? 'bg-green-200 ' : finish && answer == index ? 'bg-red-200' : '')} key={index}>
                             <label>
                                 {index + 1}-
