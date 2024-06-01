@@ -35,7 +35,7 @@ export const Question = ({ item, setUserAnswer, next }) => {
                     <div className="flex justify-between my-2">
 
                         <div className="cursor-pointer inline-block m-auto border-2 border-green-500 bg-green-300 rounded-lg px-2 py-1" onClick={checkAnswer}>تایید</div>
-                        <div className="cursor-pointer inline-block m-auto border-2 border-blue-500 bg-blue-300 rounded-lg px-2 py-1" onClick={next}>بعدی</div>
+                        <div className="cursor-pointer inline-block m-auto border-2 border-blue-500 text-blue-500 hover:text-white hover:bg-blue-300 rounded-lg px-2 py-1" onClick={next}>بعدی</div>
                     </div>
                 </div>}
         </>
