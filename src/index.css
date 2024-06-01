@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "shabnam";
+  src: url(./assets/fonts/Shabnam-FD.ttf);
+}
+
+@font-face {
+  font-family: "shabnam-light";
+  src: url(./assets/fonts/Shabnam-Light-FD.ttf);
+}
+
+@font-face {
+  font-family: "shabnam-medium";
+  src: url(./assets/font/Shabnam-Medium-FD.ttf);
+}
+
+/* * {
+  font-family: shabnam-medium;
+} */
+
+body{
+  font-family: shabnam-medium;
+  direction: rtl;
+}
