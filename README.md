@@ -1,8 +1,8 @@
-# React + Vite
+# آیین نامه رانندگی موتور سیکلت
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+این نرم افزار با استفاده از روش جعبه لایتنر به آموزش آیین نامه رانندگی موتور می پردازد. به صورتی که سوالاتی که اشتباه جواب دهید در یک بازه 1 ساعته دوباره پرسیده می شود. سوالاتی که درست پاسخ دهید در بازه های 1، 2، 4، 8 و 16 روزه دوباره پرسیده می شود و هر سوالی که اشتباه پاسخ دهید، دوباره به مرحله اول باز می گردد.<br/>
+برای دیتابیس از جیسون سرور استفاده شده، لذا باید با دستورات زیر آن را اجرا کنید:<br/>
+npm install -g json-server<br/>
+json-server --watch data/db.json<br/>
+اگر برای اجرای جیسون سرور خطا داد دستور زیر را با دسترسی ادمین در powershell اجرا کنید:<br/>
+Set-ExecutionPolicy Unrestricted
