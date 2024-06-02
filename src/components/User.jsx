@@ -28,13 +28,15 @@ export const User = () => {
     var due = userExam?.questions?.filter(x => x.dueDate < new Date() && !seen.includes(x.id) ).sort((a, b) => a.dueDate - b.dueDate);
     if (due && due.length > 0) {
       var dueQ =qList.filter(x => x.id == due[0].id)[0];
-      setCurrent(()=>({ ...dueQ, items: dueQ.items.map(x => ({ ...x, sort: Math.random() })).sort((a, b) => a.sort - b.sort) }));
+      //setCurrent(()=>({ ...dueQ, items: dueQ.items.map(x => ({ ...x, sort: Math.random() })).sort((a, b) => a.sort - b.sort) }));
+      setCurrent(dueQ);
       setSeen(x=> [...x,dueQ.id])
     }
     else {
       const q = qList.filter(x => !userExam?.questions?.some(s => s.id == x.id));
       const rndQ = q[Math.floor(Math.random() * q.length)]; //سوال رندوم
-      setCurrent(()=>({ ...rndQ, items: rndQ.items.map(x => ({ ...x, sort: Math.random() })).sort((a, b) => a.sort - b.sort) })) //گزینه رندوم
+     // setCurrent(()=>({ ...rndQ, items: rndQ.items.map(x => ({ ...x, sort: Math.random() })).sort((a, b) => a.sort - b.sort) })) //گزینه رندوم
+      setCurrent(rndQ) 
       setSeen(x=> [...x,rndQ.id])
     }
 
