@@ -36,6 +36,7 @@ export async function GetData(url) {
 }
 
 export async function DeleteData(url, id) {
+    debugger;
     return fetch('http://localhost:3000/' + url + '/' + id, {
         method: 'DELETE',
     })

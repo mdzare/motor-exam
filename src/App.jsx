@@ -4,6 +4,7 @@ import { Home } from './components/Home'
 import { Layout } from './components/Layout'
 import { User } from './components/User'
 import { Exam } from './components/Exam'
+import { Checker } from './components/Checker'
 
 
 function App() {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
       {path:'/', element:<Home/>},
       {path:'/User/:id', element:<User/>},
       {path:'/Exam', element:<Exam/>},
+      {path:'/Check/:id', element:<Checker/>},
     ],
   },
 ])
