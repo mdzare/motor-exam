@@ -1,21 +1,25 @@
 import { useEffect, useState } from 'react';
-import qList from '../data/list.json'
-import { GetData } from '../hooks/apiService';
-import { useParams } from 'react-router-dom';
+import qList from '../data/questions.json'
+import { CheckQuestion } from './CheckQuestion';
+import { json } from 'react-router-dom';
 
 export const Checker = () => {
-    const { id } = useParams();
-    const [userExam, setUserExam] = useState({}); //سوالات دیده شده 
-
+    const [list, setList] = useState([])
     useEffect(() => {
-        GetData('exams/' + id).then(x => {
-            // if (!x.id)
-            //     x = { id, questions: [] };
-            setUserExam(() => x);
-
-        })
+        setList(qList);
     }, [])
+    const deleteQuestion = (id) => {
+        setList(list.filter(x => x.id != id));
+    }
+    const deletePic = (id) => {
+        setList(list.map(x => x.id != id ? x : {id:x.id , question:x.question , items:x.items}));
+
+    }
     return (
-         <div>{userExam.questions?.filter(x=> qList.filter(q=> q.id == x.id).length == 0).map(z=> z.id).join(',')}</div>
-    )
+        <div>
+            <div className=" m-auto md:w-[50%]">
+                {list.map((x, i) => <CheckQuestion key={i} item={x} deleteQuestion={deleteQuestion} deletePic={deletePic} />)}
+            </div>
+            <div>{JSON.stringify(list)}</div>
+        </div>)
 }

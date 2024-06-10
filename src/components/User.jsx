@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import qList from '../data/list.json'
-import { DeleteData, GetData, PutData } from "../hooks/apiService";
+import { GetData, PutData } from "../hooks/apiService";
 import { Question } from "./Question";
 export const User = () => {
   const { id } = useParams();
@@ -23,13 +23,13 @@ export const User = () => {
   }, [userExam?.id])
 
   const getQuestion = () => {
+    debugger;
       if (userExam?.questions == undefined)
       return
     var due = userExam?.questions?.filter(x => x.dueDate < new Date() && !seen.includes(x.id)).sort((a, b) => a.dueDate - b.dueDate);
     if (due && due.length > 0) {
       var dueQ = qList.filter(x => x.id == due[0].id)[0];
       if(dueQ == undefined){
-        console.log(due[0].id)
        setUserExam({...userExam, questions: userExam.questions.filter(x=> x.id != due[0].id)});
         return getQuestion();
       }
@@ -42,7 +42,8 @@ export const User = () => {
       const rndQ = q[Math.floor(Math.random() * q.length)]; //سوال رندوم
       // setCurrent(()=>({ ...rndQ, items: rndQ.items.map(x => ({ ...x, sort: Math.random() })).sort((a, b) => a.sort - b.sort) })) //گزینه رندوم
       setCurrent(rndQ)
-      setSeen(x => [...x, rndQ.id])
+      if(rndQ?.id != undefined)
+        setSeen(x => [...x, rndQ.id])
     }
 
   }
@@ -98,8 +99,8 @@ export const User = () => {
 
       </div>
       <div className=" m-auto md:w-[50%]">
-        {current.id && <Question key={current.id} item={current} setUserAnswer={setUserAnswer} next={getQuestion} />}
-        {!current.id && <div>سوالی باقی نمانده است!</div>}
+        {current?.id && <Question key={current.id} item={current} setUserAnswer={setUserAnswer} next={getQuestion} />}
+        {!current?.id && <div>سوالی باقی نمانده است!</div>}
       </div>
     </div>
   )

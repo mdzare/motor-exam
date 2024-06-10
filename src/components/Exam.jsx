@@ -1,4 +1,4 @@
-import qList from '../data/list.json'
+import qList from '../data/questions.json'
 import { Question } from './Question'
 
 
