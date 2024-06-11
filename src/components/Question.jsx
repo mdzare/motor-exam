@@ -23,7 +23,7 @@ export const Question = ({ item, setUserAnswer, next }) => {
                     <ul className={items.some(x=>x.img)? 'flex gap-5':''}>{items?.map((item, index) =>
                         <li className={'mt-1 ' + (finish && item.isAnswer ? 'bg-green-200 ' : finish && answer == index ? 'bg-red-200' : '')} key={index}>
                             <label>
-                                {index + 1}-
+                                <span className="min-w-4 inline-block text-left me-[2px]">{index + 1} -</span>
                                 <input type='radio' className='me-1'
                                     onChange={() => setAnswer(index)} disabled={finish}
                                     value={index} name={'question_'} />

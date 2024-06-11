@@ -4,17 +4,24 @@
 
 @font-face {
   font-family: "shabnam";
-  src: url(./assets/fonts/Shabnam-FD.ttf);
+  src: url(/font/Shabnam-FD.ttf);
 }
 
 @font-face {
   font-family: "shabnam-light";
-  src: url(./assets/fonts/Shabnam-Light-FD.ttf);
+  src: url(/font/Shabnam-Light-FD.ttf);
 }
 
 @font-face {
   font-family: "shabnam-medium";
-  src: url(./assets/font/Shabnam-Medium-FD.ttf);
+  src: url(/font/Shabnam-Medium-FD.ttf);
+}
+
+:root {
+  --font-family: "shabnam", -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+  --toastify-font-family: var(--font-family) !important;
 }
 
 /* * {
@@ -22,6 +29,10 @@
 } */
 
 body{
-  font-family: shabnam-medium;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: .8rem;
+  font-feature-settings: 'ss01', 'calt', 'tnum' 0;
+  /* font-family: shabnam-medium; */
   direction: rtl;
 }
